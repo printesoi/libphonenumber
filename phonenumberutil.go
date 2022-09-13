@@ -9,9 +9,8 @@ import (
 	"sync"
 	"unicode"
 
-	"github.com/ttacon/builder"
-
 	"github.com/golang/protobuf/proto"
+	"github.com/printesoi/libphonenumber/builder"
 )
 
 const (

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/ttacon/builder"
+	"github.com/printesoi/libphonenumber/builder"
 )
 
 type PhoneNumberMatcher struct {
