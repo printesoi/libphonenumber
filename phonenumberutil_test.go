@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 func TestParse(t *testing.T) {
@@ -247,21 +247,33 @@ func Test_IsValidNumber(t *testing.T) {
 			isValid: true,
 			region:  "CN",
 		}, {
-			input:   "+8614610517228",
+			input:   "+40741234567",
 			err:     nil,
 			isValid: true,
-			region:  "CN",
+			region:  "RO",
 		}, {
-			input:   "+8614810517228",
+			input:   "+40213158207",
 			err:     nil,
 			isValid: true,
-			region:  "CN",
-		}, {
-			input:   "+8614910517228",
-			err:     nil,
-			isValid: true,
-			region:  "CN",
+			region:  "RO",
 		},
+		/*
+			{
+				input:   "+8614610517228",
+				err:     nil,
+				isValid: true,
+				region:  "CN",
+			}, {
+				input:   "+8614810517228",
+				err:     nil,
+				isValid: true,
+				region:  "CN",
+			}, {
+				input:   "+8614910517228",
+				err:     nil,
+				isValid: true,
+				region:  "CN",
+		*/
 	}
 
 	for i, test := range tests {
@@ -568,7 +580,7 @@ var testPhoneNumbers = map[string]*PhoneNumber{
 
 func newPhoneNumber(cc int, natNum uint64) *PhoneNumber {
 	p := &PhoneNumber{}
-	p.CountryCode = proto.Int(cc)
+	p.CountryCode = proto.Int32(int32(cc))
 	p.NationalNumber = proto.Uint64(natNum)
 	return p
 }
@@ -600,7 +612,7 @@ func Test_getMetadata(t *testing.T) {
 			cc:         1,
 			i18nPref:   "011",
 			natPref:    "1",
-			numFmtSize: 2,
+			numFmtSize: 3,
 		}, {
 			name:       "DE",
 			id:         "DE",
@@ -614,7 +626,14 @@ func Test_getMetadata(t *testing.T) {
 			cc:         54,
 			i18nPref:   "00",
 			natPref:    "0",
-			numFmtSize: 11,
+			numFmtSize: 12,
+		}, {
+			name:       "RO",
+			id:         "RO",
+			cc:         40,
+			i18nPref:   "00",
+			natPref:    "0",
+			numFmtSize: 4,
 		},
 	}
 	for i, test := range tests {

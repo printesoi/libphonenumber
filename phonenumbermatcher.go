@@ -5,7 +5,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/printesoi/libphonenumber/builder"
+	"github.com/printesoi/libphonenumber/internal/builder"
 )
 
 type PhoneNumberMatcher struct {
