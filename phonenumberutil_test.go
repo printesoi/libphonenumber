@@ -273,6 +273,7 @@ func Test_IsValidNumber(t *testing.T) {
 				err:     nil,
 				isValid: true,
 				region:  "CN",
+			},
 		*/
 	}
 
