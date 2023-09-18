@@ -2,6 +2,4 @@ module github.com/printesoi/libphonenumber
 
 go 1.17
 
-require github.com/golang/protobuf v1.5.2
-
-require google.golang.org/protobuf v1.28.1
+require google.golang.org/protobuf v1.31.0
